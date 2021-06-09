@@ -25,6 +25,52 @@ namespace CursoCSharp.ClassesEMetodos
             return a / b;
         }
     }
+
+    class CalculadoraCadeia
+    {
+        int memoria;
+
+        public CalculadoraCadeia Somar(int a)
+        {
+            memoria += a;
+            return this;
+        }
+
+        public CalculadoraCadeia Subtrair(int a)
+        {
+            memoria -= a;
+            return this;
+        }
+
+        public CalculadoraCadeia Multiplicar(int a)
+        {
+            memoria *= a;
+            return this;
+        }
+
+        public CalculadoraCadeia Dividir(int a)
+        {
+            memoria /= a;
+            return this;
+        }
+
+        public CalculadoraCadeia Limpar()
+        {
+            memoria = 0;
+            return this;
+        }
+
+        public CalculadoraCadeia Imprimir()
+        {
+            Console.WriteLine(memoria);
+            return this;
+        }
+
+        public int Resultado()
+        {
+            return memoria;
+        }
+    }
     class MetodosComRetorno
     {
         public static void Executar()
@@ -41,6 +87,10 @@ namespace CursoCSharp.ClassesEMetodos
             Console.WriteLine(calculadoraComum.Dividir(a, b));
             Console.WriteLine(calculadoraComum.Multiplicar(a, b));
 
+            var calculadoraCadeia = new CalculadoraCadeia();
+
+            Console.WriteLine();
+            calculadoraCadeia.Somar(5).Subtrair(1).Multiplicar(4).Imprimir().Limpar().Imprimir();
         }
     }
 }
